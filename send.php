@@ -1,13 +1,25 @@
 <?php
 require 'vendor/autoload.php'; 
+$toEmail   = "{Your email}";
 
-$toEmail  = "hectorhpflores72@gmail.com";
-$apiKey = getenv("sendGridKey");
-$fromEmail = "updates@visualstudio-plus.com";
+if($toEmail == "{Your email}"){
+	print "\n"."Seems like you havent updated the 'toEmail' variable. Update to use your personal email for testing"."\n"."\n";
+	return;
+}
+
+###########################################################################
+$apiKey = getenv("sendGridApiKey");
+$domain = getenv("sendingEmailDomain");
+$fromEmail = "updates@".$domain;
 $fromName  = "Updates";
 $toName    = "Customer";
-###########################################################################
 
+###########################################################################
+print "ToEmail: ".$toEmail. "\n";
+print "apiKey: ".$apiKey. "\n";
+print "fromEmail: ".$fromEmail. "\n";
+print "ToEmail: ".$fromName. "\n";
+print "fromName: ".$toName. "\n";
 
 ###########################################################################
 $email = new \SendGrid\Mail\Mail(); 
